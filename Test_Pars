@@ -1,0 +1,30 @@
+import org.jsoup.Jsoup;
+import org.jsoup.helper.Validate;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
+
+/**
+ *
+ * @author user
+ */
+public class JsoupTest {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws IOException{
+    // String url = "http://dynamo.kiev.ua/";
+       String url_2 = "http://mesto.ua/sale/";
+     //   Document document = Jsoup.connect(url).post();
+      Document document = Jsoup.connect(url_2).post();
+      Elements links = document.select("a[href]"); 
+      for (Element link : links) { 
+          System.out.println("link : " + link.attr("href"));
+      } 
+      System.out.println("text : " + links.text());
+    }
+    
+}
